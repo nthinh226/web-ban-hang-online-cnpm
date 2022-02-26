@@ -73,7 +73,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 											$t1 = "23:59:59";
 											$to = date('Y-m-d') . " " . $t1;
 											$status = 0;
-											$query = mysqli_query($conn, "select v.sodh, v.makh, v.hotenkh, v.email, v.sdt, v.diachigiaohang, v.ngaydh, v.tongtien, v.trangthaidh from view_donhang v where v.trangthaidh =".$status." and v.ngaydh between '" . $from . "' and '" . $to . "'");
+											$query = mysqli_query($conn, "select v.sodh, v.makh, v.hotenkh, v.email, v.sdt, v.diachigiaohang, v.ngaydh, v.tongtien, v.trangthaidh from view_donhang v where v.trangthaidh =" . $status . " and v.ngaydh between '" . $from . "' and '" . $to . "'");
 											$cnt = 1;
 											if ($query) {
 												while ($row = mysqli_fetch_array($query)) {
@@ -88,11 +88,10 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 														<td> <a href="cap-nhat-don-hang.php?sodh=<?php echo htmlentities($row['sodh']); ?>" title="Xác nhận đơn hàng" target="_blank"><i class="icon-edit"></i></a>
 														</td>
 													</tr>
-											<?php 
-											$cnt = $cnt + 1;
+											<?php
+													$cnt = $cnt + 1;
 												}
-											}else{
-
+											} else {
 											} ?>
 										</tbody>
 									</table>

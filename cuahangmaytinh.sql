@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Feb 25, 2022 at 05:13 PM
+-- Generation Time: Feb 26, 2022 at 05:06 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.21
 
@@ -122,16 +122,16 @@ CREATE TABLE IF NOT EXISTS `dondathang` (
 --
 
 INSERT INTO `dondathang` (`sodh`, `ngaydh`, `ngaydukiengiao`, `ngaythuctegiao`, `makh`, `manv`, `trangthaidh`, `ghichu`) VALUES
-('DH1', '2021-11-04 06:47:24', '2021-11-05', '2021-11-05 15:00:09', 'KH1', 'NV1', 2, NULL),
-('DH10', '2021-11-07 11:47:24', '2021-11-09', '2021-11-09 09:03:19', 'KH2', 'NV1', 2, '123         '),
+('DH1', '2021-11-04 06:47:24', '2021-11-05', '26-02-2022 11:07:06 AM', 'KH1', 'NV1', 2, '                  Đã giao cho kháhc'),
+('DH10', '2021-11-07 11:47:24', '2021-11-09', '26-02-2022 11:21:00 AM', 'KH2', 'NV1', 2, 'đã giao cho khách'),
 ('DH2', '2021-11-03 06:47:24', '2021-11-04', '2021-11-04 00:00:00', 'KH1', 'NV1', 2, NULL),
-('DH3', '2022-02-25 06:47:24', '2021-11-04', '26-02-2022 12:12:23 AM', 'KH2', 'NV1', 3, 'thích thì huỷ                                    '),
+('DH3', '2022-02-25 06:47:24', '2021-11-04', '26-02-2022 11:23:32 AM', 'KH2', 'NV1', 3, ''),
 ('DH4', '2021-11-02 12:08:38', '2021-11-02', '2021-11-02 17:32:00', 'KH1', NULL, 2, NULL),
 ('DH5', '2021-11-04 06:47:24', '2021-11-06', '2021-11-06 23:13:50', 'KH1', 'NV1', 2, NULL),
 ('DH6', '2021-11-01 06:47:24', '2021-11-03', '2021-11-03 09:59:00', 'KH1', 'NV1', 2, NULL),
-('DH7', '2021-11-03 06:47:24', '2021-11-04', NULL, 'KH1', NULL, 0, NULL),
+('DH7', '2021-11-03 06:47:24', '2021-11-04', '26-02-2022 10:44:31 AM', 'KH1', 'NV1', 2, '                  '),
 ('DH8', '2021-11-03 06:47:24', '2021-11-04', '2021-11-04 08:00:00', 'KH1', NULL, 2, NULL),
-('DH9', '2021-11-07 06:47:24', '2021-11-09', NULL, 'KH3', NULL, 0, NULL);
+('DH9', '2021-11-07 06:47:24', '2021-11-09', '26-02-2022 11:05:57 AM', 'KH3', 'NV1', 2, '            123      ');
 
 -- --------------------------------------------------------
 
@@ -305,6 +305,38 @@ INSERT INTO `theloai` (`matl`, `tentl`, `mota`, `ngaytao`, `ngaycapnhat`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `theodoidonhang`
+--
+
+DROP TABLE IF EXISTS `theodoidonhang`;
+CREATE TABLE IF NOT EXISTS `theodoidonhang` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sodh` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `trangthaidh` int(11) NOT NULL,
+  `ghichu` text NOT NULL,
+  `ngaygiao` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `sodh` (`sodh`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `theodoidonhang`
+--
+
+INSERT INTO `theodoidonhang` (`id`, `sodh`, `trangthaidh`, `ghichu`, `ngaygiao`) VALUES
+(1, 'DH9', 1, '              123    ', '2022-02-26 04:04:07'),
+(2, 'DH9', 2, '            123      ', '2022-02-26 04:05:57'),
+(3, 'DH1', 0, '                 chờ giao ', '2022-02-26 04:06:46'),
+(4, 'DH1', 1, '                  Shipper đang trên đường', '2022-02-26 04:06:57'),
+(5, 'DH1', 2, '                  Đã giao cho kháhc', '2022-02-26 04:07:06'),
+(6, 'DH10', 0, '                  chờ xử lý', '2022-02-26 04:13:37'),
+(7, 'DH10', 1, 'đang vận chuyển', '2022-02-26 04:20:53'),
+(8, 'DH10', 2, 'đã giao cho khách', '2022-02-26 04:21:00'),
+(9, 'DH3', 3, '', '2022-02-26 04:23:32');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `thuonghieu`
 --
 
@@ -377,6 +409,30 @@ INSERT INTO `thuonghieusanpham` (`mathuonghieu`, `masanpham`) VALUES
 ('KT', 'SSDKT1'),
 ('MS', 'MBMS4'),
 ('SE', 'HDDSE1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userlog`
+--
+
+DROP TABLE IF EXISTS `userlog`;
+CREATE TABLE IF NOT EXISTS `userlog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(200) DEFAULT NULL,
+  `userIp` binary(16) DEFAULT NULL,
+  `loginTime` timestamp NULL DEFAULT current_timestamp(),
+  `logout` varchar(200) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `userlog`
+--
+
+INSERT INTO `userlog` (`id`, `username`, `userIp`, `loginTime`, `logout`, `status`) VALUES
+(1, 'ngocthinh1126@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-26 04:59:09', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -454,6 +510,12 @@ ALTER TABLE `dondathang`
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`maloai`) REFERENCES `theloai` (`matl`),
   ADD CONSTRAINT `sanpham_ibfk_2` FOREIGN KEY (`mancc`) REFERENCES `nhacungcap` (`mancc`);
+
+--
+-- Constraints for table `theodoidonhang`
+--
+ALTER TABLE `theodoidonhang`
+  ADD CONSTRAINT `theodoidonhang_ibfk_1` FOREIGN KEY (`sodh`) REFERENCES `dondathang` (`sodh`);
 
 --
 -- Constraints for table `thuonghieusanpham`

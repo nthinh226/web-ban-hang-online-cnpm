@@ -35,7 +35,6 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 
 	<body>
 		<?php include('include/header.php'); ?>
-
 		<div class="wrapper">
 			<div class="container">
 				<div class="row">
@@ -56,7 +55,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 									<?php } ?>
 
 									<br />
-									
+
 									<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display table-responsive">
 										<thead>
 											<tr>
@@ -77,7 +76,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 											// đơn hàng đã xong 2
 											// đơn hàng đã huỷ 3
 											$status = 1;
-											$query = mysqli_query($conn, "select v.sodh, v.makh, v.hotenkh, v.email, v.sdt, v.diachigiaohang, v.ngaydh, v.tongtien, v.trangthaidh from view_donhang v where v.trangthaidh = ".$status);
+											$query = mysqli_query($conn, "select v.sodh, v.makh, v.hotenkh, v.email, v.sdt, v.diachigiaohang, v.ngaydh, v.tongtien, v.trangthaidh from view_donhang v where v.trangthaidh = " . $status);
 											$cnt = 1;
 											if ($query) {
 												while ($row = mysqli_fetch_array($query)) {

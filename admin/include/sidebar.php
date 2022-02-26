@@ -47,6 +47,12 @@
 
 						</a>
 					</li>
+					<li>
+						<a href="quan-ly-don-hang.php">
+							<i class="icon-tasks"></i>
+							Quản lý đơn hàng
+						</a>
+					</li>
 				</ul>
 			</li>
 
@@ -64,7 +70,6 @@
 		<!--/.widget-nav-->
 
 		<ul class="widget widget-menu unstyled">
-			<li><a href="admin-logs.php"><i class="menu-icon icon-tasks"></i>Lịch sử đăng nhập nhân viên </a></li>
 			<li><a href="user-logs.php"><i class="menu-icon icon-tasks"></i>Lịch sử đăng nhập khách hàng </a></li>
 
 			<li><a href="logout.php"><i class="menu-icon icon-signout"></i>Đăng xuất</a></li>

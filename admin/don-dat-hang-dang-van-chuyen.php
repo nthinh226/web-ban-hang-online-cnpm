@@ -59,10 +59,10 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 									<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display table-responsive">
 										<thead>
 											<tr>
-												<th>#</th>
-												<th> Họ tên</th>
-												<th width="50">Email /SDT</th>
-												<th>ĐC giao hàng</th>
+											<th>#</th>
+												<th>Họ tên</th>
+												<th>SDT</th>
+												<th>Địa chỉ</th>
 												<th>Tổng tiền </th>
 												<th>Ngày đặt hàng</th>
 												<th>Chỉnh sửa</th>
@@ -84,11 +84,11 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 													<tr>
 														<td><?php echo htmlentities($cnt); ?></td>
 														<td><?php echo htmlentities($row['hotenkh']); ?></td>
-														<td><?php echo htmlentities($row['email']); ?>/<?php echo htmlentities($row['sdt']); ?></td>
+														<td><?php echo htmlentities($row['sdt']); ?></td>
 														<td><?php echo htmlentities($row['diachigiaohang']); ?></td>
 														<td><?php echo htmlentities($row['tongtien']); ?></td>
 														<td><?php echo htmlentities($row['ngaydh']); ?></td>
-														<td> <a href="cap-nhat-don-hang.php?sodh=<?php echo htmlentities($row['sodh']); ?>" title="Hoàn thành đơn hàng" target="_blank"><i class="icon-edit"></i></a>
+														<td><a href="cap-nhat-don-hang.php?sodh=<?php echo htmlentities($row['sodh']); ?>" title="Hoàn thành đơn hàng" target="_blank"><i class="icon-edit"></i></a>
 														</td>
 													</tr>
 

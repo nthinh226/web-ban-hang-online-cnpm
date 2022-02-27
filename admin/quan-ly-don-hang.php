@@ -63,9 +63,9 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 										<thead>
 											<tr>
 												<th>#</th>
-												<th> Họ tên</th>
-												<th width="50">SDT</th>
-												<th>ĐC giao hàng</th>
+												<th>Họ tên</th>
+												<th>SDT</th>
+												<th>Địa chỉ</th>
 												<th>Tổng tiền </th>
 												<th>Trạng thái</th>
 												<th>Chi tiết</th>
@@ -83,22 +83,21 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 													<tr>
 														<td><?php echo htmlentities($cnt); ?></td>
 														<td><?php echo htmlentities($row['hotenkh']); ?></td>
-														<td><?php echo htmlentities($row['email']); ?>/<?php echo htmlentities($row['sdt']); ?></td>
+														<td><?php echo htmlentities($row['sdt']); ?></td>
 														<td><?php echo htmlentities($row['diachigiaohang']); ?></td>
 														<td><?php echo htmlentities($row['tongtien']); ?></td>
 														<td><?php
-                                                        $trangthai = $row['trangthaidh'];
-                                                        if($trangthai==1){ ?>
-                                                            Đang giao
-                                                        <?php }elseif($trangthai==2){ ?>
-                                                            Đã giao
-                                                        <?php }elseif($trangthai==3){ ?>
-                                                            Đã huỷ
-                                                        <?php } ?></td>
-														<td> <a href="cap-nhat-don-hang.php?sodh=<?php echo htmlentities($row['sodh']); ?>" title="Xác nhận đơn hàng" target="_blank"><i class="icon-edit"></i></a>
+															$trangthai = $row['trangthaidh'];
+															if ($trangthai == 1) { ?>
+																Đang giao
+															<?php } elseif ($trangthai == 2) { ?>
+																Đã giao
+															<?php } elseif ($trangthai == 3) { ?>
+																Đã huỷ
+															<?php } ?></td>
+														<td><a href="cap-nhat-don-hang.php?sodh=<?php echo htmlentities($row['sodh']); ?>" title="Xác nhận đơn hàng" target="_blank"><i class="icon-edit"></i></a>
 														</td>
 													</tr>
-
 											<?php $cnt = $cnt + 1;
 												}
 											} ?>
@@ -106,9 +105,6 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 									</table>
 								</div>
 							</div>
-
-
-
 						</div>
 						<!--/.content-->
 					</div>
@@ -120,7 +116,6 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 		<!--/.wrapper-->
 
 		<?php include('include/footer.php'); ?>
-
 		<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
 		<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 		<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

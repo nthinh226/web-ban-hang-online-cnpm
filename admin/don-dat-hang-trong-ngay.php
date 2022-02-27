@@ -9,11 +9,10 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 ?>
 	<!DOCTYPE html>
 	<html lang="en">
-
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Admin| Xử lý đơn hàng</title>
+		<title>Đơn đặt hàng trong ngày</title>
 		<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -21,7 +20,6 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 		<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
 		<script language="javascript" type="text/javascript">
 			var popUpWin = 0;
-
 			function popUpWindow(URLStr, left, top, width, height) {
 				if (popUpWin) {
 					if (!popUpWin.closed) popUpWin.close();
@@ -57,9 +55,9 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 										<thead>
 											<tr>
 												<th>#</th>
-												<th> Họ tên</th>
-												<th width="50">Email /SDT</th>
-												<th>ĐC giao hàng</th>
+												<th>Họ tên</th>
+												<th>SDT</th>
+												<th>Địa chỉ</th>
 												<th>Tổng tiền </th>
 												<th>Ngày đặt hàng</th>
 												<th>Chỉnh sửa</th>
@@ -81,7 +79,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 													<tr>
 														<td><?php echo htmlentities($cnt); ?></td>
 														<td><?php echo htmlentities($row['hotenkh']); ?></td>
-														<td><?php echo htmlentities($row['email']); ?>/<?php echo htmlentities($row['sdt']); ?></td>
+														<td><?php echo htmlentities($row['sdt']); ?></td>
 														<td><?php echo htmlentities($row['diachigiaohang']); ?></td>
 														<td><?php echo htmlentities($row['tongtien']); ?></td>
 														<td><?php echo htmlentities($row['ngaydh']); ?></td>

@@ -42,7 +42,8 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Admin| Thể loại</title>
+		<title>Thể loại</title>
+		<link rel="icon" href="images/logo.png" type="image/x-icon">
 		<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
 		<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
@@ -125,7 +126,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 												<th>Tên thể loại</th>
 												<th>Mô tả</th>
 												<th>Ngày tạo</th>
-												<th>Ngày cập nhập</th>
+												<th>Ngày cập nhật</th>
 												<th>Chỉnh sửa</th>
 											</tr>
 										</thead>

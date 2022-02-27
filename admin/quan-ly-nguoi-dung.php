@@ -14,7 +14,8 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Admin| Quản lý người dùng</title>
+		<title>Quản lý khách hàng</title>
+		<link rel="icon" href="images/logo.png" type="image/x-icon">
 		<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
@@ -34,7 +35,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 
 							<div class="module">
 								<div class="module-head">
-									<h3>Quản lý người dùng</h3>
+									<h3>Danh sách khách hàng</h3>
 								</div>
 								<div class="module-body table">
 								<?php } ?>

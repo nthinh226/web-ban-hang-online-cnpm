@@ -66,7 +66,8 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Admin| Thêm sản phẩm</title>
+		<title>Thêm sản phẩm</title>
+		<link rel="icon" href="images/logo.png" type="image/x-icon">
 		<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">

@@ -32,7 +32,8 @@ if (isset($_POST['submit'])) {
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>NT226 Computer | Admin login</title>
+	<title>WS Computer | Đăng nhập</title>
+	<link rel="icon" href="images/logo.png" type="image/x-icon">
 	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -48,23 +49,16 @@ if (isset($_POST['submit'])) {
 				<a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
 					<i class="icon-reorder shaded"></i>
 				</a>
-
-				<a class="brand" href="index.html">
-					NT226 Computer | Admin
+				<a class="brand" href="index.php">
+					WS Computer | Quản lý
 				</a>
-
 				<div class="nav-collapse collapse navbar-inverse-collapse">
 
 					<ul class="nav pull-right">
 
 						<li><a href="http://localhost/shopping/">
-								Quay lại cửa hàng
-
+								Trở về cửa hàng
 							</a></li>
-
-
-
-
 					</ul>
 				</div><!-- /.nav-collapse -->
 			</div>
@@ -79,7 +73,6 @@ if (isset($_POST['submit'])) {
 						<div class="module-head">
 							<h3>Đăng nhập</h3>
 						</div>
-						<span style="color:red;"><?php echo htmlentities($_SESSION['errmsg']); ?><?php echo htmlentities($_SESSION['errmsg'] = ""); ?></span>
 						<div class="module-body">
 							<div class="control-group">
 								<div class="controls row-fluid">
@@ -95,8 +88,8 @@ if (isset($_POST['submit'])) {
 						<div class="module-foot">
 							<div class="control-group">
 								<div class="controls clearfix">
-									<button type="submit" class="btn btn-primary pull-right" name="submit">Login</button>
-
+									<button type="submit" class="btn btn-primary pull-right" name="submit">Đăng nhập</button>
+									<span style="color:red;"><?php echo htmlentities($_SESSION['errmsg']); ?><?php echo htmlentities($_SESSION['errmsg'] = ""); ?></span>
 								</div>
 							</div>
 						</div>
@@ -109,9 +102,7 @@ if (isset($_POST['submit'])) {
 
 	<div class="footer">
 		<div class="container">
-
-
-			<b class="copyright">&copy; 2021 Cửa Hàng Online </b> All rights reserved.
+			<b class="copyright">Copyright &copy; 2022 by White-Shark Group </b> All rights reserved.
 		</div>
 	</div>
 	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>

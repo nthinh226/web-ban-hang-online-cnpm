@@ -7,16 +7,14 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 
 	date_default_timezone_set('Asia/Ho_Chi_Minh'); // change according timezone
 	$currentTime = date('d-m-Y h:i:s A', time());
-
-
 ?>
 	<!DOCTYPE html>
-	<html lang="en">
-
+	<html lang="vi">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Admin| Pending Orders</title>
+		<title>Quản lý đơn hàng</title>
+		<link rel="icon" href="images/logo.png" type="image/x-icon">
 		<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -24,7 +22,6 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 		<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
 		<script language="javascript" type="text/javascript">
 			var popUpWin = 0;
-
 			function popUpWindow(URLStr, left, top, width, height) {
 				if (popUpWin) {
 					if (!popUpWin.closed) popUpWin.close();
@@ -33,32 +30,20 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 			}
 		</script>
 	</head>
-
 	<body>
 		<?php include('include/header.php'); ?>
-
 		<div class="wrapper">
 			<div class="container">
 				<div class="row">
 					<?php include('include/sidebar.php'); ?>
 					<div class="span9">
 						<div class="content">
-
 							<div class="module">
 								<div class="module-head">
-									<h3>Xử lý đơn hàng</h3>
+									<h3>Danh sách đơn hàng</h3>
 								</div>
 								<div class="module-body table">
-									<?php if (isset($_GET['del'])) { ?>
-										<div class="alert alert-error">
-											<button type="button" class="close" data-dismiss="alert">×</button>
-											<strong>Oh snap!</strong> <?php echo htmlentities($_SESSION['delmsg']); ?><?php echo htmlentities($_SESSION['delmsg'] = ""); ?>
-										</div>
-									<?php } ?>
-
 									<br />
-
-
 									<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display table-responsive">
 										<thead>
 											<tr>
@@ -71,7 +56,6 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 												<th>Chi tiết</th>
 											</tr>
 										</thead>
-
 										<tbody>
 											<?php
 											$status = 0;

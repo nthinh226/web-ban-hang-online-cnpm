@@ -15,7 +15,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 		// $sql=mysqli_query($conn,"update theloai set tentl='$tentl', mota='$mota' where matl='$matl'");
 		$sql114 = "UPDATE theloai SET tentl=N'" . $tentl . "', mota=N'" . $mota . "', ngaycapnhat='" . $currentTime . "' where matl='" . $matl . "'";
 		if ($conn->query($sql114) === TRUE) {
-			echo "Record updated successfully";
+			// echo "Record updated successfully";
 			$_SESSION['msg'] = "Cập nhập thể loại thành công !!";
 			//sau 2s thì chuyển tiếp sang trang tao-the-loai.php
 			header( "refresh:2; url=tao-the-loai.php" );
@@ -32,7 +32,8 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Admin| Thể Loại</title>
+		<title>Sửa thể Loại</title>
+		<link rel="icon" href="images/logo.png" type="image/x-icon">
 		<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">

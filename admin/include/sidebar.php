@@ -57,7 +57,7 @@
 			</li>
 
 			<li><a href="quan-ly-nhan-vien.php"><i class="menu-icon icon-tasks"></i>Quản lý nhân viên</a></li>
-			<li><a href="quan-ly-nguoi-dung.php"><i class="menu-icon icon-tasks"></i>Quản lý người dùng</a></li>
+			<li><a href="quan-ly-nguoi-dung.php"><i class="menu-icon icon-tasks"></i>Quản lý khách hàng</a></li>
 		</ul>
 
 		<ul class="widget widget-menu unstyled">

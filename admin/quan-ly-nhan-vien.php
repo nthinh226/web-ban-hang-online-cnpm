@@ -7,7 +7,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
     date_default_timezone_set('Asia/Ho_Chi_Minh'); // change according timezone
     $currentTime = date('d-m-Y h:i:s A', time());
 
-	if (isset($_POST['taonv'])) {
+    if (isset($_POST['taonv'])) {
         $hotennv = $_POST['hotennv'];
         $ngaysinhnv = $_POST['ngaysinh'];
         $gioitinhnv = $_POST['gioitinh'];
@@ -15,14 +15,6 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
         $emailnv = $_POST['email'];
         $tendangnhapnv = $_POST['tendangnhap'];
         $matkhaunv = md5($sdtnv);
-
-        // $hoten = $_POST['hotennv'];
-		// $ngaysinh = $_POST['ngaysinh'];
-		// $gioitinh = $_POST['gioitinh'];
-		// $sdt = $_POST['sdt'];
-        // $email = $_POST['email'];
-        // $username = $_POST['username'];
-        // $password = $sdt;
 
         //tăng số tự động
         $tang_so_tt = mysqli_query($conn, "SELECT max(ExtractNumber(nv.manv)) AS maxstt from nhanvien nv");
@@ -59,16 +51,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
                 echo "lỗi" . $conn->error;  //Không thành công
             }
         }
-
-		// $sqltaonv = "INSERT INTO nhanvien(manv, hotennv, ngaysinh, gioitinh, sdt, email, username, matkhau) VALUES('$manv','$hoten','$ngaysinh','$gioitinh','$sdt','$email','$username','$password')";
-		// if ($conn->query($sqltaonv) === TRUE) {
-		// 	$_SESSION['msg'] = "Thêm nhân viên thành công !!";
-		// 	// echo "<script type='text/javascript'>alert('Thêm thể loại thành công !!');</script>";
-		// 	// echo header("refresh: 0; url = tao-the-loai.php");
-		// } else {
-		// 	echo "lỗi" . $conn->error;
-		// }
-	}    
+    }
 
 ?>
     <!DOCTYPE html>
@@ -77,12 +60,13 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin| Quản lý người dùng</title>
+        <title>Quản lý nhân viên</title>
+        <link rel="icon" href="images/logo.png" type="image/x-icon">
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
-		<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
-		<link type="text/css" href="css/theme.css" rel="stylesheet">
+        <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+        <link type="text/css" href="css/theme.css" rel="stylesheet">
     </head>
 
     <body>

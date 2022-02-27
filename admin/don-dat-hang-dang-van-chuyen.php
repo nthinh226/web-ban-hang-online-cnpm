@@ -15,7 +15,8 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Admin| Pending Orders</title>
+		<title>Đơn hàng đang vận chuyển</title>
+		<link rel="icon" href="images/logo.png" type="image/x-icon">
 		<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -59,7 +60,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 									<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display table-responsive">
 										<thead>
 											<tr>
-											<th>#</th>
+												<th>#</th>
 												<th>Họ tên</th>
 												<th>SDT</th>
 												<th>Địa chỉ</th>

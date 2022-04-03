@@ -19,17 +19,14 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 		$mota = $_POST['mota'];
 
 		// $sql=mysqli_query($conn,"UPDATE sanpham SET tensp='$tensp',giasp='$giasp',giakhuyenmai='$giakhuyenmai',maloai='$maloai',mancc='$mancc',mota='$mota' WHERE masp='$masp'");
-		$sqlcapnhap = "UPDATE sanpham SET tensp='" . $tensp . "',giasp='" . $giasp . "',giakhuyenmai='" . $giakhuyenmai . "',maloai='" . $maloai . "',mancc='" . $mancc . "',mota='" . $mota . "', ngaycapnhat='" . $currentTime . "' WHERE masp='" . $masp . "'";
+		$sqlcapnhap = "UPDATE sanpham SET tensp='" . $tensp . "',giasp='" . $giasp . "',giakhuyenmai='" . $giakhuyenmai . "',maloai='" . $maloai . "',math='" . $math . "',mota='" ."',mancc='" . $mancc . "',mota='" . $mota . "', ngaycapnhat='" . $currentTime . "' WHERE masp='" . $masp . "'";
 		if ($conn->query($sqlcapnhap) === TRUE) {
-			$conn->query("UPDATE thuonghieusanpham SET mathuonghieu='$math', masanpham='$masanpham'");
-			echo "Record updated successfully";
+			// echo "Record updated successfully";
 			            //sau 2s thì chuyển tiếp sang trang tao-the-loai.php
 						header( "refresh:2; url=quan-ly-san-pham.php" );
 		} else {
 			echo "Error updating record: " . $conn->error;
 		}
-
-
 		$_SESSION['msg'] = "Cập nhập sản phẩm thành công !!";
 	}
 
@@ -91,7 +88,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 									<form class="form-horizontal row-fluid" name="suasanpham" method="post" enctype="multipart/form-data">
 
 										<?php
-										$query = mysqli_query($conn, "SELECT sanpham.masp, sanpham.hinhanhsp, theloai.matl, theloai.tentl, sanpham.tensp, thuonghieu.math, thuonghieu.tenth, nhacungcap.mancc, nhacungcap.tenncc, sanpham.giasp, sanpham.giakhuyenmai,sanpham.mota FROM sanpham,thuonghieusanpham,thuonghieu,nhacungcap,theloai WHERE sanpham.masp=thuonghieusanpham.masanpham and thuonghieusanpham.mathuonghieu=thuonghieu.math and sanpham.mancc=nhacungcap.mancc and sanpham.maloai=theloai.matl and sanpham.masp='$masp'");
+										$query = mysqli_query($conn, "SELECT sanpham.masp, sanpham.hinhanhsp, theloai.matl, theloai.tentl, sanpham.tensp, thuonghieu.math, thuonghieu.tenth, nhacungcap.mancc, nhacungcap.tenncc, sanpham.giasp, sanpham.giakhuyenmai,sanpham.mota FROM sanpham,thuonghieu,nhacungcap,theloai WHERE sanpham.math = thuonghieu.math and sanpham.mancc=nhacungcap.mancc and sanpham.maloai=theloai.matl and sanpham.masp='$masp'");
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($query)) {
 										?>

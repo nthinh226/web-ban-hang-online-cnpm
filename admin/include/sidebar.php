@@ -50,7 +50,7 @@
 					<li>
 						<a href="quan-ly-don-hang.php">
 							<i class="icon-tasks"></i>
-							Quản lý đơn hàng
+							Đơn hàng
 						</a>
 					</li>
 				</ul>
@@ -70,7 +70,6 @@
 		<!--/.widget-nav-->
 
 		<ul class="widget widget-menu unstyled">
-			<li><a href="user-logs.php"><i class="menu-icon icon-tasks"></i>Lịch sử đăng nhập khách hàng </a></li>
 
 			<li><a href="logout.php"><i class="menu-icon icon-signout"></i>Đăng xuất</a></li>
 		</ul>

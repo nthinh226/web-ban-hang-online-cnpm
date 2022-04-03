@@ -7,25 +7,25 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 
 	if (isset($_POST['themsp'])) {
 		$masp = '';
-        $manccsp = $_POST['mancc'];
-        $tensp = $_POST['tensp'];
-        $maloaisp = $_POST['maloai'];
-        $mathsp = $_POST['math'];
-        $giasp = floatval($_POST['giasp']);
-        $giakhuyenmaisp = floatval($_POST['giakhuyenmai']);
-        $motasp = $_POST['mota'];
+		$manccsp = $_POST['mancc'];
+		$tensp = $_POST['tensp'];
+		$maloaisp = $_POST['maloai'];
+		$mathsp = $_POST['math'];
+		$giasp = floatval($_POST['giasp']);
+		$giakhuyenmaisp = floatval($_POST['giakhuyenmai']);
+		$motasp = $_POST['mota'];
 
-        //tăng số tự động
-        $tang_so_tt = mysqli_query($conn, "SELECT max(ExtractNumber(sanpham.masp)) AS maxstt from sanpham where sanpham.maloai like '" . $maloaisp . "%'");
-        $row = mysqli_fetch_array($tang_so_tt);
-        if ($row > 0) {
-            $stt = intval($row['maxstt']);
-            $stt += 1;
-            $masp = $maloaisp . $mathsp . $stt;
-        } else {
-            $masp = $maloaisp . $mathsp . "1";
-        }
-        //tăng số tự động
+		//tăng số tự động
+		$tang_so_tt = mysqli_query($conn, "SELECT max(ExtractNumber(sanpham.masp)) AS maxstt from sanpham where sanpham.maloai like '" . $maloaisp . "%'");
+		$row = mysqli_fetch_array($tang_so_tt);
+		if ($row > 0) {
+			$stt = intval($row['maxstt']);
+			$stt += 1;
+			$masp = $maloaisp . $mathsp . $stt;
+		} else {
+			$masp = $maloaisp . $mathsp . "1";
+		}
+		//tăng số tự động
 
 		$hinhanhsp = $_FILES['hinhanhsp']['name'];
 		$dir = "hinhanhsp/$masp";
@@ -33,22 +33,11 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 			mkdir("hinhanhsp/" . $masp);
 		}
 
-		$sqlthemsp = "INSERT INTO sanpham(masp, mancc, tensp, maloai, giasp, giakhuyenmai, mota, hinhanhsp) VALUES ('" . $masp . "','" . $manccsp . "','" . $tensp . "','" . $maloaisp . "'," . $giasp . "," . $giakhuyenmaisp . ",'" . $motasp . "','" . $hinhanhsp . "')";
+		$sqlthemsp = "INSERT INTO sanpham(masp, mancc, math, tensp, maloai, giasp, giakhuyenmai, mota, hinhanhsp) VALUES ('" . $masp . "','" . $manccsp . "','" . $mathsp . "','" . $tensp . "','" . $maloaisp . "'," . $giasp . "," . $giakhuyenmaisp . ",'" . $motasp . "','" . $hinhanhsp . "')";
 		if (mysqli_query($conn, $sqlthemsp)) {
 			if (mysqli_affected_rows($conn) > 0) { //có thay đổi dữ liệu
-				if ($mathsp == "") {
-					echo "Record updated successfully";
-					move_uploaded_file($_FILES["hinhanhsp"]["tmp_name"], "hinhanhsp/$masp/" . $_FILES["hinhanhsp"]["name"]);
-					$_SESSION['thongbao'] = "Thêm sản phẩm (không có thương hiệu) thành công !!";//Insert dữ liệu sản phẩm không có thương hiệu thành công
-				} else {
-					$sql1 = "INSERT INTO thuonghieusanpham(mathuonghieu, masanpham) VALUE ('" . $mathsp . "','" . $masp . "')";
-					if (mysqli_query($conn, $sql1)) {
-						move_uploaded_file($_FILES["hinhanhsp"]["tmp_name"], "hinhanhsp/$masp/" . $_FILES["hinhanhsp"]["name"]);
-						$_SESSION['thongbao'] = "Thêm sản phẩm thành công !!"; //Insert dữ liệu thành công
-					} else {
-						$_SESSION['thongbao'] = "Thêm sản phẩm không thành công !!"; //Không thành công
-					}
-				}
+				move_uploaded_file($_FILES["hinhanhsp"]["tmp_name"], "hinhanhsp/$masp/" . $_FILES["hinhanhsp"]["name"]);
+				$_SESSION['thongbao'] = "Thêm sản phẩm thành công !!"; //Insert dữ liệu thành công
 			} else {
 				echo "Error updating record: " . $conn->error;
 				$_SESSION['thongbao'] = "Thêm sản phẩm không thành công !!"; //Không thành công
@@ -114,7 +103,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 									<?php if (isset($_POST['themsp'])) { ?>
 										<div class="alert alert-success">
 											<button type="button" class="close" data-dismiss="alert">×</button>
-											<strong><?php echo htmlentities($_SESSION['thongbao']); ?><?php echo htmlentities($_SESSION['thongbao'] = ""); ?></strong> 
+											<strong><?php echo htmlentities($_SESSION['thongbao']); ?><?php echo htmlentities($_SESSION['thongbao'] = ""); ?></strong>
 										</div>
 									<?php } ?>
 

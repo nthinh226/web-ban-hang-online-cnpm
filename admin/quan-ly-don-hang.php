@@ -20,6 +20,8 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 		<link type="text/css" href="css/theme.css" rel="stylesheet">
 		<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
 		<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+		<script src="plugins/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">	
 		<script language="javascript" type="text/javascript">
 			var popUpWin = 0;
 			function popUpWindow(URLStr, left, top, width, height) {

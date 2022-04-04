@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Feb 26, 2022 at 05:06 AM
+-- Generation Time: Apr 03, 2022 at 06:24 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.21
 
@@ -136,6 +136,22 @@ INSERT INTO `dondathang` (`sodh`, `ngaydh`, `ngaydukiengiao`, `ngaythuctegiao`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `giohang`
+--
+
+DROP TABLE IF EXISTS `giohang`;
+CREATE TABLE IF NOT EXISTS `giohang` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `masp` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `makh` varchar(20) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `makh` (`makh`),
+  KEY `masp` (`masp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `khachhang`
 --
 
@@ -228,6 +244,7 @@ DROP TABLE IF EXISTS `sanpham`;
 CREATE TABLE IF NOT EXISTS `sanpham` (
   `masp` varchar(20) NOT NULL,
   `mancc` varchar(20) NOT NULL,
+  `math` varchar(20) NOT NULL,
   `tensp` varchar(255) NOT NULL,
   `maloai` varchar(20) NOT NULL,
   `giasp` float NOT NULL,
@@ -238,37 +255,39 @@ CREATE TABLE IF NOT EXISTS `sanpham` (
   `ngaycapnhat` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`masp`),
   KEY `maloai` (`maloai`),
-  KEY `mancc` (`mancc`)
+  KEY `mancc` (`mancc`),
+  KEY `math` (`math`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sanpham`
 --
 
-INSERT INTO `sanpham` (`masp`, `mancc`, `tensp`, `maloai`, `giasp`, `giakhuyenmai`, `mota`, `hinhanhsp`, `ngaytao`, `ngaycapnhat`) VALUES
-('CPUA3', 'NCC1', 'CPU AMD Ryzen 5 5600G (3.9GHz Upto 4.4GHz / 19MB / 6 Cores, 12 Threads / 65W / Socket AM4)', 'CPU', 6959000, 0, 'CPU Ryzen. sửa', '042eb9136d1389019c69ec5ad0bd47d1.jpeg', '2021-11-04 13:43:36', '09-11-2021 09:06:15 AM'),
-('CPUA4', 'NCC1', 'CPU AMD Ryzen Threadripper 3960X (3.8GHz turbo up to 4.5GHz, 24 nhân 48 luồng, 140MB Cache, 280W) - Socket sTRX4', 'CPU', 36799000, 0, 'Thông số sản phẩm\nCPU Threadripper thế hệ thứ 3 được mong chờ của AMD\n24 nhân & 48 luồng\nXung cơ bản: 3.8 GHz\nXung tối đa (boost): 4.5 GHz\nChạy tốt trên các mainboard socket sTRX4\nPhù hợp cho những nhà sáng tạo nội dung', 'bcdd29ffd590d3b0525cf9784b7d7dfa.jpeg', '2021-11-04 13:44:11', NULL),
-('CPUA5', 'NCC1', 'CPU AMD EPYC 7F52 (3.5GHz turbo up to 3.9GHz / 256MB / 16 Cores, 32 Threads / 240W / Socket SP3)', 'CPU', 100100000, 97169000, 'Thông số sản phẩm\nCPU đa nhân của AMD dành cho hệ thống sever\nTốc độ: 3.9Ghz\nSố nhân: 16\nSố luồng: 32', 'ebadec13c0be77232861faf10ab1f225.jpeg', '2021-11-04 13:45:02', NULL),
-('CPUI1', 'NCC2', 'CPU Intel Core i3-10105F', 'CPU', 2699000, 0, '(3.7GHz turbo up to 4.4Ghz, 4 nhân 8 luồng, 6MB Cache, 65W)', '2631734e2304b1e4411f2c9c1ae7a337.jpeg', '2021-10-30 08:29:19', NULL),
-('CPUI2', 'NCC2', 'CPU Intel Core i5-10400F', 'CPU', 4399000, 0, 'core i5 thế hệ 10', 'b17d5322e542abf50df228038da29b1e.jpeg', '2021-10-30 08:29:45', '07-11-2021 02:20:19 PM'),
-('CSCM2', 'NCC2', 'Vỏ Case Cooler Master MasterCase H500P TG Mesh ARGB (Mid Tower/Màu đen/Led ARGB/Mặt lưới)', 'CS', 4069000, 0, 'Thông số sản phẩm\nHỗ trợ mainboard: Mini ITX, Micro ATX, ATX, E-ATX (tối đa 12 x 10.7 inch)\nRadiator lắp đặt tối đa: 2x280/360mm và 1 x 120/140mm\nChiều cao tản nhiệt CPU tối đa: 190mm\nChiều dài VGA: 412mm', 'fbf8de972464a8283a5a45c5ba72f677.jpeg', '2021-11-04 13:47:48', NULL),
-('CSCM3', 'NCC2', 'Vỏ case Cooler Master MasterBox NR200P Purple  (Mini ITX Tower/Màu Tím)', 'CS', 2459000, 0, 'Thông số sản phẩm\nKích thước cực kỳ nhỏ gọn, dành cho những ai yêu thích không gian làm việc gọn gàng\nMặt kính bên hông sẵn sàng khoe trọn nội thất bên trong\nKhả năng hỗ trợ làm mát đa dạng\nHỗ trợ Card đồ họa 3 slot\nDễ dàng tháo lắp không cần dụng cụ\nKhả năng truy xuất phần cứng 360 độ\nHỗ trợ bo mạch chủ: Mini DTX, Mini ITX, tối đa: 244 x 226mm\nHỗ trợ tản nhiệt nước Custom\nChất liệu hoàn thiện cao cấp\nMặt hông thiết kế dạng lỗ giúp thoát nhiệt nhanh chóng\nKèm sẵn dây Riser nối dài\nPhiên bản màu tím phong cách', '6d440d98f201cd6914b582fccec4a24b.jpeg', '2021-11-04 13:48:38', NULL),
-('CSCO1', 'NCC2', 'Vỏ Case Corsair 4000D TG White', 'CS', 2179000, 2008000, 'Mẫu vỏ case kích thước mid ATX, khung thép chắc chắn và đặc biệt bởi khả năng quản lý dây cáp dễ dàng.\nĐi kèm 2 quạt Corsair AirGuide 120mm cho hiệu quả làm mát vượt trội.\nMặt kính cường lực bên hông, khe dựng dọc VGA được tích hợp sẵn.\nHỗ trợ card đồ họa dài tối đa: 360mm\nHỗ trợ CPU cao tối đa: 170mm\nTông màu trắng đem lại vẻ sạch và sang trọng cho góc máy của bạn.', 'e4af5965573baf11f633de558df74d0e.jpeg', '2021-10-30 08:31:50', NULL),
-('CSGI4', 'NCC2', 'Vỏ Case Gigabyte GB-AC300G Tempered Glass Gaming (Mid Tower/Màu Đen/Led RGB)', 'CS', 2589000, 0, 'Thông số sản phẩm\nKính cường lực hông 4mm\nMặt trước tích hợp cổng HDMI và cổng USB Type C 3.1\nHỗ trợ xoay, dựng dọc VGA\nTương thích hệ thống tản nước\nKhay che nguồn với logo độc đáo\nMiếng lọc bụi có thể tháo rời', '2e01c8ebc3f949f3f01bf342ccce4319.jpeg', '2021-11-04 13:51:16', NULL),
-('HDDSE1', 'NCC1', 'Ổ cứng HDD Seagate SkyHawk 2TB 3.5 inch, 5900RPM, SATA3, 64MB Cache', 'HDD', 1999000, 1559000, 'Dung lượng: 2TB\nTốc độ vòng quay: 5900rpm\nBộ nhớ đệm: 64MB Cache\nKích thước: 3.5”\nChuẩn kết nối: SATA 6Gb/s', '27230a523e40b3fbb05fd49868252106.jpeg', '2021-10-30 08:33:02', NULL),
-('MBAS1', 'NCC2', 'Mainboard ASUS TUF GAMING B550M-PLUS', 'MB', 3799000, 0, '', '5db630cf0fc03f41f93cb20cab8b64f3.jpeg', '2021-10-30 08:34:07', NULL),
-('MBAS2', 'NCC2', 'Mainboard ASUS PRIME B550M-A', 'MB', 2899000, 2699000, '', '41946935c4d6bfffb258cde89fbb7015.jpeg', '2021-10-30 08:34:37', NULL),
-('MBGI3', 'NCC2', 'Mainboard GIGABYTE X570 AORUS ELITE', 'MB', 6059000, 5559000, 'Thiết kế nhiệt tiên tiến với tản nhiệt mở rộng\nDual PCIe 4.0 M.2 với Bộ bảo vệ nhiệt đơn\nIntel ® GbE LAN với cFosSpeed\nUSB phía trước Type-C, RGB Fusion 2.0', 'de83b570c0d20eb05b1d144a13bfc60b.jpeg', '2021-10-30 08:35:19', NULL),
-('MBMS4', 'NCC2', 'Mainboard MSI MEG Z590 GODLIKE', 'MB', 22999000, 0, 'Thông số sản phẩm\nBo mạch chủ Z590 cao cấp nhất của MSI\nChipset: Intel Z590\nSocket: LGA 1200\nKích thước: E-ATX\nSố khe RAM: 4\nTích hợp sẵn Wifi', '625a9a883b799c2b4904b2c972e106f4.jpeg', '2021-11-04 13:38:48', NULL),
-('PWCM2', 'NCC2', 'Nguồn máy tính Cooler Master Elite V3 230V PC600 600W (Màu Đen)', 'PW', 1069000, 979000, 'Thông số sản phẩm\nCông nghệ Active PFC\nKháng nhiệt độ cao hơn\nHiệu quả công suất lên tới 75%', 'd2cb1e52359778b8a5a65fa727950218.jpeg', '2021-11-04 13:46:20', NULL),
-('PWCO1', 'NCC2', 'Nguồn Corsair RM Series RM750 - 750W', 'PW', 3339000, 3019000, 'Chứng nhận 80 PLUS Gold: hoạt động hiệu quả , tiết kiệm điện năng, ít tiếng ồn và nhiệt độ mát hơn.\nTự điều chỉnh tiếng ồn khi hoạt động: quạt 140mm với đường cong quạt được tính toán đặc biệt đảm bảo tiếng ồn khi hoạt động được giữ ở mức tối thiểu, ngay cả khi hoạt động tối đa công suất\nSử dụng tụ điện 105 ° C: tụ điện cấp công nghiệp cho hiệu suất cao và hoạt động ổn định\nTương thích với chế độ chờ mới nhất của Microsoft: thời gian thức dậy cực nhanh và hiệu quả tải thấp tốt hơn.\nChế độ quạt Zero RPM: ở mức tải thấp và trung bình Quạt làm mát tắt hoàn toàn cho hoạt động gần như im lặng.', '5bdf5c20de5e68cc2009c8520e2d7320.jpeg', '2021-10-30 08:37:32', NULL),
-('RACO1', 'NCC2', 'RAM Desktop CORSAIR Vengeance LPX (CMK8GX4M1A2666C16 ) 8GB (1x8GB) DDR4 2666MHz', 'RA', 1419000, 1129000, 'Chủng loại: Bộ nhớ trong\nHãng sản xuất: Corsair\nSeries: VENGEANCE® LPX\nLoại RAM: DDR4\nĐóng gói: 8GB (1x8GB)\nBus: 2666MHz\nĐộ trễ: 16-18-18-35\nĐiện áp: 1.2V\nTản nhiệt: Nhôm truyền thống.', 'a844abe629396ec72eb0d404578dd851.jpeg', '2021-10-30 08:38:06', NULL),
-('RAKT2', 'NCC2', 'Ram Desktop Kingston HyperX Fury RBG (HX432C16FB3AK2/16 ) 16GB (2x8GB) DDR4 3200Mhz', 'RA', 2859000, 0, 'Thông số sản phẩm\nKiểu RAM: Ram PC\nLoại bộ nhớ: DDR4\nLED RGB\nCó tản nhiệt\nBao gồm 2 thanh 8GB.', '38040f8f1a53f9104b384ec8c163cae6.jpeg', '2021-11-07 17:48:45', NULL),
-('SSDCO2', 'NCC2', 'Ổ cứng SSD Corsair MP600 PRO 1TB M.2 2280 PCIe NVMe Gen 4x4 (Đoc 7000MB/s, Ghi 5500MB/s) - (CSSD-F1000GBMP600PRO)', 'SSD', 6599000, 0, 'Thông số sản phẩm\nLoại: Ổ cứng SSD M.2 NVME\nChuẩn kết nối: PCI-E 4.0\nDung lượng: 1TB', 'fb6d389a78c1c28d78249fd0634b9522.jpeg', '2021-11-04 15:07:24', NULL),
-('SSDKT1', 'NCC1', 'Ổ cứng SSD Kingston A400 120GB 2.5 inch SATA3', 'SSD', 909000, 679000, 'Dung lượng: 120GB\nKích thước: 2.5', '28afe22e47f3f647e777ba88ef3ea77c.jpeg', '2021-10-30 08:39:00', NULL),
-('VGAAS1', 'NCC2', 'Card màn hình Asus ROG STRIX-LC-RTX 3080 Ti-O12G-GAMING', 'VGA', 55449000, 0, 'Thông số sản phẩm\nNhân đồ họa: Nvidia RTX 3080Ti\nSố nhân Cuda: 10240\nDung lượng VRAM: 12GB GDDR6X', '6fee48022ebe15caa64dfacdd9ae2e3b.jpeg', '2021-11-04 13:40:13', NULL),
-('VGAAS2', 'NCC1', 'Card màn hình ASUS PH-GT1030-O2G (2GB GDDR5, 64-bit, DVI+HDMI', 'VGA', 2599000, 0, 'Chip đồ họa: NVIDIA GeForce GT 1030\nBộ nhớ: 2GB GDDR5 ( 64-bit )\nGPU clock Chế độ OC - Xung Tăng cường GPU : 1531 MHz , Xung Nền GPU : 1278 MHz Chế độ Chơi Game - Xung Tăng cường GPU : 1506 MHz , Xung Nền GPU : 1252 MHz\nNguồn phụ: Không nguồn phụ', 'df2682746670d19f514f7b5e0ea3c114.jpeg', '2021-11-04 13:41:48', NULL),
-('VGAGI3', 'NCC2', 'Card màn hình Gigabyte RTX 3090 AORUS XTREME-24GD', 'VGA', 66999000, 0, 'Thông số sản phẩm\nDung lượng bộ nhớ: 24Gb GDDR6X\n10496 CUDA Cores\nCore Clock: 1860 MHZ\nKết nối: DisplayPort 1.4a x3, HDMI 2.1 x2\nNguồn yêu cầu: 750W', '7538bdb167ed57a2fbe2ba732005e6f8.jpeg', '2021-11-04 13:49:59', NULL);
+INSERT INTO `sanpham` (`masp`, `mancc`, `math`, `tensp`, `maloai`, `giasp`, `giakhuyenmai`, `mota`, `hinhanhsp`, `ngaytao`, `ngaycapnhat`) VALUES
+('CAAS1', 'NCC2', 'CO', '123456', 'CA', 1, 1, '1', '35e2bc25c1cc0e9257dd.jpg', '2022-04-03 06:17:11', '03-04-2022 01:19:38 PM'),
+('CPUA3', 'NCC1', 'A', 'CPU AMD Ryzen 5 5600G (3.9GHz Upto 4.4GHz / 19MB / 6 Cores, 12 Threads / 65W / Socket AM4)', 'CPU', 6959000, 0, 'CPU Ryzen. sửa', '042eb9136d1389019c69ec5ad0bd47d1.jpeg', '2021-11-04 13:43:36', '09-11-2021 09:06:15 AM'),
+('CPUA4', 'NCC1', 'A', 'CPU AMD Ryzen Threadripper 3960X (3.8GHz turbo up to 4.5GHz, 24 nhân 48 luồng, 140MB Cache, 280W) - Socket sTRX4', 'CPU', 36799000, 0, 'Thông số sản phẩm\nCPU Threadripper thế hệ thứ 3 được mong chờ của AMD\n24 nhân & 48 luồng\nXung cơ bản: 3.8 GHz\nXung tối đa (boost): 4.5 GHz\nChạy tốt trên các mainboard socket sTRX4\nPhù hợp cho những nhà sáng tạo nội dung', 'bcdd29ffd590d3b0525cf9784b7d7dfa.jpeg', '2021-11-04 13:44:11', NULL),
+('CPUA5', 'NCC1', 'A', 'CPU AMD EPYC 7F52 (3.5GHz turbo up to 3.9GHz / 256MB / 16 Cores, 32 Threads / 240W / Socket SP3)', 'CPU', 100100000, 97169000, 'Thông số sản phẩm\nCPU đa nhân của AMD dành cho hệ thống sever\nTốc độ: 3.9Ghz\nSố nhân: 16\nSố luồng: 32', 'ebadec13c0be77232861faf10ab1f225.jpeg', '2021-11-04 13:45:02', NULL),
+('CPUI1', 'NCC2', 'I', 'CPU Intel Core i3-10105F', 'CPU', 2699000, 0, '(3.7GHz turbo up to 4.4Ghz, 4 nhân 8 luồng, 6MB Cache, 65W)', '2631734e2304b1e4411f2c9c1ae7a337.jpeg', '2021-10-30 08:29:19', NULL),
+('CPUI2', 'NCC2', 'I', 'CPU Intel Core i5-10400F', 'CPU', 4399000, 0, 'core i5 thế hệ 10', 'b17d5322e542abf50df228038da29b1e.jpeg', '2021-10-30 08:29:45', '07-11-2021 02:20:19 PM'),
+('CSCM2', 'NCC2', 'CM', 'Vỏ Case Cooler Master MasterCase H500P TG Mesh ARGB (Mid Tower/Màu đen/Led ARGB/Mặt lưới)', 'CS', 4069000, 0, 'Thông số sản phẩm\nHỗ trợ mainboard: Mini ITX, Micro ATX, ATX, E-ATX (tối đa 12 x 10.7 inch)\nRadiator lắp đặt tối đa: 2x280/360mm và 1 x 120/140mm\nChiều cao tản nhiệt CPU tối đa: 190mm\nChiều dài VGA: 412mm', 'fbf8de972464a8283a5a45c5ba72f677.jpeg', '2021-11-04 13:47:48', NULL),
+('CSCM3', 'NCC2', 'CM', 'Vỏ case Cooler Master MasterBox NR200P Purple  (Mini ITX Tower/Màu Tím)', 'CS', 2459000, 0, 'Thông số sản phẩm\nKích thước cực kỳ nhỏ gọn, dành cho những ai yêu thích không gian làm việc gọn gàng\nMặt kính bên hông sẵn sàng khoe trọn nội thất bên trong\nKhả năng hỗ trợ làm mát đa dạng\nHỗ trợ Card đồ họa 3 slot\nDễ dàng tháo lắp không cần dụng cụ\nKhả năng truy xuất phần cứng 360 độ\nHỗ trợ bo mạch chủ: Mini DTX, Mini ITX, tối đa: 244 x 226mm\nHỗ trợ tản nhiệt nước Custom\nChất liệu hoàn thiện cao cấp\nMặt hông thiết kế dạng lỗ giúp thoát nhiệt nhanh chóng\nKèm sẵn dây Riser nối dài\nPhiên bản màu tím phong cách', '6d440d98f201cd6914b582fccec4a24b.jpeg', '2021-11-04 13:48:38', NULL),
+('CSCO1', 'NCC2', 'CO', 'Vỏ Case Corsair 4000D TG White', 'CS', 2179000, 2008000, 'Mẫu vỏ case kích thước mid ATX, khung thép chắc chắn và đặc biệt bởi khả năng quản lý dây cáp dễ dàng.\nĐi kèm 2 quạt Corsair AirGuide 120mm cho hiệu quả làm mát vượt trội.\nMặt kính cường lực bên hông, khe dựng dọc VGA được tích hợp sẵn.\nHỗ trợ card đồ họa dài tối đa: 360mm\nHỗ trợ CPU cao tối đa: 170mm\nTông màu trắng đem lại vẻ sạch và sang trọng cho góc máy của bạn.', 'e4af5965573baf11f633de558df74d0e.jpeg', '2021-10-30 08:31:50', NULL),
+('CSGI4', 'NCC2', 'GI', 'Vỏ Case Gigabyte GB-AC300G Tempered Glass Gaming (Mid Tower/Màu Đen/Led RGB)', 'CS', 2589000, 0, 'Thông số sản phẩm\nKính cường lực hông 4mm\nMặt trước tích hợp cổng HDMI và cổng USB Type C 3.1\nHỗ trợ xoay, dựng dọc VGA\nTương thích hệ thống tản nước\nKhay che nguồn với logo độc đáo\nMiếng lọc bụi có thể tháo rời', '2e01c8ebc3f949f3f01bf342ccce4319.jpeg', '2021-11-04 13:51:16', NULL),
+('HDDSE1', 'NCC1', 'SE', 'Ổ cứng HDD Seagate SkyHawk 2TB 3.5 inch, 5900RPM, SATA3, 64MB Cache', 'HDD', 1999000, 1559000, 'Dung lượng: 2TB\nTốc độ vòng quay: 5900rpm\nBộ nhớ đệm: 64MB Cache\nKích thước: 3.5”\nChuẩn kết nối: SATA 6Gb/s', '27230a523e40b3fbb05fd49868252106.jpeg', '2021-10-30 08:33:02', NULL),
+('MBAS1', 'NCC2', 'AS', 'Mainboard ASUS TUF GAMING B550M-PLUS', 'MB', 3799000, 0, '', '5db630cf0fc03f41f93cb20cab8b64f3.jpeg', '2021-10-30 08:34:07', NULL),
+('MBAS2', 'NCC2', 'AS', 'Mainboard ASUS PRIME B550M-A', 'MB', 2899000, 2699000, '', '41946935c4d6bfffb258cde89fbb7015.jpeg', '2021-10-30 08:34:37', NULL),
+('MBGI3', 'NCC2', 'GI', 'Mainboard GIGABYTE X570 AORUS ELITE', 'MB', 6059000, 5559000, 'Thiết kế nhiệt tiên tiến với tản nhiệt mở rộng\nDual PCIe 4.0 M.2 với Bộ bảo vệ nhiệt đơn\nIntel ® GbE LAN với cFosSpeed\nUSB phía trước Type-C, RGB Fusion 2.0', 'de83b570c0d20eb05b1d144a13bfc60b.jpeg', '2021-10-30 08:35:19', NULL),
+('MBMS4', 'NCC2', 'MS', 'Mainboard MSI MEG Z590 GODLIKE', 'MB', 22999000, 0, 'Thông số sản phẩm\nBo mạch chủ Z590 cao cấp nhất của MSI\nChipset: Intel Z590\nSocket: LGA 1200\nKích thước: E-ATX\nSố khe RAM: 4\nTích hợp sẵn Wifi', '625a9a883b799c2b4904b2c972e106f4.jpeg', '2021-11-04 13:38:48', NULL),
+('PWCM2', 'NCC2', 'CM', 'Nguồn máy tính Cooler Master Elite V3 230V PC600 600W (Màu Đen)', 'PW', 1069000, 979000, 'Thông số sản phẩm\nCông nghệ Active PFC\nKháng nhiệt độ cao hơn\nHiệu quả công suất lên tới 75%', 'd2cb1e52359778b8a5a65fa727950218.jpeg', '2021-11-04 13:46:20', NULL),
+('PWCO1', 'NCC2', 'CO', 'Nguồn Corsair RM Series RM750 - 750W', 'PW', 3339000, 3019000, 'Chứng nhận 80 PLUS Gold: hoạt động hiệu quả , tiết kiệm điện năng, ít tiếng ồn và nhiệt độ mát hơn.\nTự điều chỉnh tiếng ồn khi hoạt động: quạt 140mm với đường cong quạt được tính toán đặc biệt đảm bảo tiếng ồn khi hoạt động được giữ ở mức tối thiểu, ngay cả khi hoạt động tối đa công suất\nSử dụng tụ điện 105 ° C: tụ điện cấp công nghiệp cho hiệu suất cao và hoạt động ổn định\nTương thích với chế độ chờ mới nhất của Microsoft: thời gian thức dậy cực nhanh và hiệu quả tải thấp tốt hơn.\nChế độ quạt Zero RPM: ở mức tải thấp và trung bình Quạt làm mát tắt hoàn toàn cho hoạt động gần như im lặng.', '5bdf5c20de5e68cc2009c8520e2d7320.jpeg', '2021-10-30 08:37:32', NULL),
+('RACO1', 'NCC2', 'CO', 'RAM Desktop CORSAIR Vengeance LPX (CMK8GX4M1A2666C16 ) 8GB (1x8GB) DDR4 2666MHz', 'RA', 1419000, 1129000, 'Chủng loại: Bộ nhớ trong\nHãng sản xuất: Corsair\nSeries: VENGEANCE® LPX\nLoại RAM: DDR4\nĐóng gói: 8GB (1x8GB)\nBus: 2666MHz\nĐộ trễ: 16-18-18-35\nĐiện áp: 1.2V\nTản nhiệt: Nhôm truyền thống.', 'a844abe629396ec72eb0d404578dd851.jpeg', '2021-10-30 08:38:06', NULL),
+('RAKT2', 'NCC2', 'KT', 'Ram Desktop Kingston HyperX Fury RBG (HX432C16FB3AK2/16 ) 16GB (2x8GB) DDR4 3200Mhz', 'RA', 2859000, 0, 'Thông số sản phẩm\nKiểu RAM: Ram PC\nLoại bộ nhớ: DDR4\nLED RGB\nCó tản nhiệt\nBao gồm 2 thanh 8GB.', '38040f8f1a53f9104b384ec8c163cae6.jpeg', '2021-11-07 17:48:45', NULL),
+('SSDCO2', 'NCC2', 'CO', 'Ổ cứng SSD Corsair MP600 PRO 1TB M.2 2280 PCIe NVMe Gen 4x4 (Đoc 7000MB/s, Ghi 5500MB/s) - (CSSD-F1000GBMP600PRO)', 'SSD', 6599000, 0, 'Thông số sản phẩm\nLoại: Ổ cứng SSD M.2 NVME\nChuẩn kết nối: PCI-E 4.0\nDung lượng: 1TB', 'fb6d389a78c1c28d78249fd0634b9522.jpeg', '2021-11-04 15:07:24', NULL),
+('SSDKT1', 'NCC1', 'KT', 'Ổ cứng SSD Kingston A400 120GB 2.5 inch SATA3', 'SSD', 909000, 679000, 'Dung lượng: 120GB\nKích thước: 2.5', '28afe22e47f3f647e777ba88ef3ea77c.jpeg', '2021-10-30 08:39:00', NULL),
+('VGAAS1', 'NCC2', 'AS', 'Card màn hình Asus ROG STRIX-LC-RTX 3080 Ti-O12G-GAMING', 'VGA', 55449000, 0, 'Thông số sản phẩm\nNhân đồ họa: Nvidia RTX 3080Ti\nSố nhân Cuda: 10240\nDung lượng VRAM: 12GB GDDR6X', '6fee48022ebe15caa64dfacdd9ae2e3b.jpeg', '2021-11-04 13:40:13', NULL),
+('VGAAS2', 'NCC1', 'AS', 'Card màn hình ASUS PH-GT1030-O2G (2GB GDDR5, 64-bit, DVI+HDMI', 'VGA', 2599000, 0, 'Chip đồ họa: NVIDIA GeForce GT 1030\nBộ nhớ: 2GB GDDR5 ( 64-bit )\nGPU clock Chế độ OC - Xung Tăng cường GPU : 1531 MHz , Xung Nền GPU : 1278 MHz Chế độ Chơi Game - Xung Tăng cường GPU : 1506 MHz , Xung Nền GPU : 1252 MHz\nNguồn phụ: Không nguồn phụ', 'df2682746670d19f514f7b5e0ea3c114.jpeg', '2021-11-04 13:41:48', NULL),
+('VGAGI3', 'NCC2', 'GI', 'Card màn hình Gigabyte RTX 3090 AORUS XTREME-24GD', 'VGA', 66999000, 0, 'Thông số sản phẩm\nDung lượng bộ nhớ: 24Gb GDDR6X\n10496 CUDA Cores\nCore Clock: 1860 MHZ\nKết nối: DisplayPort 1.4a x3, HDMI 2.1 x2\nNguồn yêu cầu: 750W', '7538bdb167ed57a2fbe2ba732005e6f8.jpeg', '2021-11-04 13:49:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -291,7 +310,7 @@ CREATE TABLE IF NOT EXISTS `theloai` (
 --
 
 INSERT INTO `theloai` (`matl`, `tentl`, `mota`, `ngaytao`, `ngaycapnhat`) VALUES
-('CA', 'Card Âm Thanh', '', '2021-10-30 15:21:50', '2022-02-25 22:02:10'),
+('CA', 'Card Âm Thanh', 'âm thanh chất lượng cao', '2021-10-30 15:21:50', '27-02-2022 12:32:06 PM'),
 ('CPU', 'CPU - Bộ vi xử lý', 'cpu chất lượng cao', '2021-10-14 16:31:36', '2022-02-25 22:02:10'),
 ('CS', 'Case - Vỏ máy tính', 'case máy tính', '2021-10-14 16:39:17', '2022-02-25 22:02:10'),
 ('DW', 'ODD - Ổ Đĩa Quang', '', '2021-10-30 15:22:49', '2022-02-25 22:02:10'),
@@ -370,73 +389,6 @@ INSERT INTO `thuonghieu` (`math`, `tenth`, `diachi`, `email`, `sdt`, `fax`, `web
 -- --------------------------------------------------------
 
 --
--- Table structure for table `thuonghieusanpham`
---
-
-DROP TABLE IF EXISTS `thuonghieusanpham`;
-CREATE TABLE IF NOT EXISTS `thuonghieusanpham` (
-  `mathuonghieu` varchar(20) NOT NULL,
-  `masanpham` varchar(20) NOT NULL,
-  PRIMARY KEY (`mathuonghieu`,`masanpham`),
-  KEY `masanpham` (`masanpham`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `thuonghieusanpham`
---
-
-INSERT INTO `thuonghieusanpham` (`mathuonghieu`, `masanpham`) VALUES
-('A', 'CPUA3'),
-('A', 'CPUA4'),
-('A', 'CPUA5'),
-('AS', 'MBAS1'),
-('AS', 'MBAS2'),
-('AS', 'VGAAS1'),
-('AS', 'VGAAS2'),
-('CM', 'CSCM2'),
-('CM', 'CSCM3'),
-('CM', 'PWCM2'),
-('CO', 'CSCO1'),
-('CO', 'PWCO1'),
-('CO', 'RACO1'),
-('CO', 'SSDCO2'),
-('GI', 'CSGI4'),
-('GI', 'MBGI3'),
-('GI', 'VGAGI3'),
-('I', 'CPUI1'),
-('I', 'CPUI2'),
-('KT', 'RAKT2'),
-('KT', 'SSDKT1'),
-('MS', 'MBMS4'),
-('SE', 'HDDSE1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `userlog`
---
-
-DROP TABLE IF EXISTS `userlog`;
-CREATE TABLE IF NOT EXISTS `userlog` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(200) DEFAULT NULL,
-  `userIp` binary(16) DEFAULT NULL,
-  `loginTime` timestamp NULL DEFAULT current_timestamp(),
-  `logout` varchar(200) DEFAULT NULL,
-  `status` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `userlog`
---
-
-INSERT INTO `userlog` (`id`, `username`, `userIp`, `loginTime`, `logout`, `status`) VALUES
-(1, 'ngocthinh1126@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-26 04:59:09', NULL, 1);
-
--- --------------------------------------------------------
-
---
 -- Stand-in structure for view `view_baocaodoanhthutheongay`
 -- (See below for the actual view)
 --
@@ -505,24 +457,25 @@ ALTER TABLE `dondathang`
   ADD CONSTRAINT `dondathang_ibfk_2` FOREIGN KEY (`manv`) REFERENCES `nhanvien` (`manv`);
 
 --
+-- Constraints for table `giohang`
+--
+ALTER TABLE `giohang`
+  ADD CONSTRAINT `giohang_ibfk_1` FOREIGN KEY (`makh`) REFERENCES `khachhang` (`makh`),
+  ADD CONSTRAINT `giohang_ibfk_2` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`masp`);
+
+--
 -- Constraints for table `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`maloai`) REFERENCES `theloai` (`matl`),
-  ADD CONSTRAINT `sanpham_ibfk_2` FOREIGN KEY (`mancc`) REFERENCES `nhacungcap` (`mancc`);
+  ADD CONSTRAINT `sanpham_ibfk_2` FOREIGN KEY (`mancc`) REFERENCES `nhacungcap` (`mancc`),
+  ADD CONSTRAINT `sanpham_ibfk_3` FOREIGN KEY (`math`) REFERENCES `thuonghieu` (`math`);
 
 --
 -- Constraints for table `theodoidonhang`
 --
 ALTER TABLE `theodoidonhang`
   ADD CONSTRAINT `theodoidonhang_ibfk_1` FOREIGN KEY (`sodh`) REFERENCES `dondathang` (`sodh`);
-
---
--- Constraints for table `thuonghieusanpham`
---
-ALTER TABLE `thuonghieusanpham`
-  ADD CONSTRAINT `thuonghieusanpham_ibfk_1` FOREIGN KEY (`masanpham`) REFERENCES `sanpham` (`masp`),
-  ADD CONSTRAINT `thuonghieusanpham_ibfk_2` FOREIGN KEY (`mathuonghieu`) REFERENCES `thuonghieu` (`math`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

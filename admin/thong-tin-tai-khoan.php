@@ -21,7 +21,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 			$sqlupdate = " UPDATE nhanvien SET hotennv='$hotennv', ngaysinh='$ngaysinh', gioitinh='$gioitinh', sdt='$sdt' where manv='$manv'";
 			// echo "Record updated successfully";
 			if ($conn->query($sqlupdate) === TRUE) {
-				$_SESSION['thongbao'] = "Cập nhập thông tin thành công !!";
+				$_SESSION['thongbao'] = "success";
 				// echo "Record updated successfully";
 			} else {
 				echo "Error updating record: " . $conn->error;
@@ -31,7 +31,7 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 			if ($conn->query($sqlupdate) === TRUE) {
 				move_uploaded_file($_FILES['avatar']['tmp_name'], "avatar/" . $manv . "/" . $avatar);
 				// echo "Record updated successfully";
-				$_SESSION['thongbao'] = "Cập nhập thông tin thành công !!";
+				$_SESSION['thongbao'] = "success";
 			} else {
 				echo "Error updating record: " . $conn->error;
 			}
@@ -54,10 +54,14 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 		<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
 		<link type="text/css" href="css/theme.css" rel="stylesheet">
 		<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+		<script src="plugins/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
+		<script src="../js/jsuser.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">	
 
 	</head>
 
 	<body>
+
 		<?php include('include/header.php'); ?>
 		
 		<div class="wrapper">
@@ -73,11 +77,9 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
 								</div>
 								<div class="module-body">
 
-									<?php if (isset($_POST['capnhap'])) { ?>
-										<div class="alert alert-success">
-											<button type="button" class="close" data-dismiss="alert">×</button>
-											<strong>Thành công!</strong> <?php echo htmlentities($_SESSION['thongbao']); ?><?php echo htmlentities($_SESSION['thongbao'] = ""); ?>
-										</div>
+									<?php if (isset($_POST['capnhap'])) {
+											echo "<script>sweet_alert('success','Cập nhật thành công','')</script>";?>
+										
 									<?php } ?>
 									<br />
 

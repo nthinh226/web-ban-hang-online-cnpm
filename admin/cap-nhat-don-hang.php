@@ -34,8 +34,8 @@ if (strlen($_SESSION['atendangnhap']) == 0) {
     
     <script src="assets/plugins/jquery/jquery.min.js"></script>
     <script src="assets/js/jsuser.js"></script>
-    <link rel="stylesheet" type="text/css" href="plugins/sweetalert2/sweetalert2.css">
-    <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="plugins/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">	
 
   </head>
 

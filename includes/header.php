@@ -12,7 +12,9 @@ include("includes/config.php");
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>NT226 Computer</title>
+	<title>WS-Computer</title>
+
+	<link rel="icon" href="img/logo.png" type="image/x-icon">
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -164,8 +166,8 @@ include("includes/config.php");
                                 <div class="dropdownn">
                                   <a href="#" class="dropdownn" data-toggle="modal" data-target="#myModal" ><i class="fa fa-user-o"></i> Tài khoản của tôi</a>
                                   <div class="dropdownn-content">
-                                    <a href="" data-toggle="modal" data-target="#Modal_login"><i class="fa fa-sign-in" aria-hidden="true" ></i>Đăng nhập</a>
-                                    <a href="" data-toggle="modal" data-target="#Modal_register"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng ký</a>
+                                    <a href="#" data-toggle="modal" data-target="#Modal_login"><i class="fa fa-sign-in" aria-hidden="true" ></i>Đăng nhập</a>
+                                    <a href="#" data-toggle="modal" data-target="#Modal_register"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng ký</a>
                                     
                                   </div>
                                 </div>';
@@ -191,7 +193,7 @@ include("includes/config.php");
 						<div class="header-logo">
 							<a href="#" class="logo">
 								<font style="font-style:normal; font-size: 33px;color: aliceblue;font-family: serif">
-									NT226 Computer
+									WS-Computer
 								</font>
 							</a>
 						</div>
@@ -203,9 +205,9 @@ include("includes/config.php");
 						<div class="header-search">
 							<form>
 								<select class="input-select">
-									<option value="0">All Categories</option>
-									<option value="1">Men</option>
-									<option value="1">Women </option>
+									<option value="0">Tất cả</option>
+									<option value="1">CPU</option>
+									<option value="1">Case </option>
 								</select>
 								<input class="input" id="search" type="text" placeholder="Search here">
 								<button type="submit" id="search_btn" class="search-btn">Search</button>

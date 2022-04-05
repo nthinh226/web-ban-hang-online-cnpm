@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Apr 03, 2022 at 06:24 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.3.21
+-- Generation Time: Apr 04, 2022 at 08:21 AM
+-- Server version: 10.6.5-MariaDB
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `chitietdh` (
   PRIMARY KEY (`id_item`,`sodh`),
   KEY `sodh` (`sodh`),
   KEY `masp` (`masp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `chitietdh`
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `dondathang` (
   PRIMARY KEY (`sodh`),
   KEY `makh` (`makh`),
   KEY `manv` (`manv`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `dondathang`
@@ -142,8 +142,8 @@ INSERT INTO `dondathang` (`sodh`, `ngaydh`, `ngaydukiengiao`, `ngaythuctegiao`, 
 DROP TABLE IF EXISTS `giohang`;
 CREATE TABLE IF NOT EXISTS `giohang` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `masp` varchar(20) CHARACTER SET utf8 NOT NULL,
-  `makh` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `masp` varchar(20) CHARACTER SET utf8mb3 NOT NULL,
+  `makh` varchar(20) CHARACTER SET utf8mb3 NOT NULL,
   PRIMARY KEY (`id`),
   KEY `makh` (`makh`),
   KEY `masp` (`masp`)
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `khachhang` (
   `ngaydangky` timestamp NOT NULL DEFAULT current_timestamp(),
   `avatar` text DEFAULT NULL,
   PRIMARY KEY (`makh`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `khachhang`
@@ -194,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `nhacungcap` (
   `sdt` varchar(50) NOT NULL,
   `fax` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`mancc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `nhacungcap`
@@ -223,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `nhanvien` (
   `avatar` text DEFAULT NULL,
   `quyen` int(11) NOT NULL DEFAULT 1,
   PRIMARY KEY (`manv`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `nhanvien`
@@ -257,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `sanpham` (
   KEY `maloai` (`maloai`),
   KEY `mancc` (`mancc`),
   KEY `math` (`math`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `sanpham`
@@ -303,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `theloai` (
   `ngaytao` timestamp NOT NULL DEFAULT current_timestamp(),
   `ngaycapnhat` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`matl`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `theloai`
@@ -330,7 +330,7 @@ INSERT INTO `theloai` (`matl`, `tentl`, `mota`, `ngaytao`, `ngaycapnhat`) VALUES
 DROP TABLE IF EXISTS `theodoidonhang`;
 CREATE TABLE IF NOT EXISTS `theodoidonhang` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sodh` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `sodh` varchar(20) CHARACTER SET utf8mb3 NOT NULL,
   `trangthaidh` int(11) NOT NULL,
   `ghichu` text NOT NULL,
   `ngaygiao` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -369,7 +369,7 @@ CREATE TABLE IF NOT EXISTS `thuonghieu` (
   `fax` varchar(50) DEFAULT NULL,
   `website` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`math`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `thuonghieu`
@@ -426,7 +426,7 @@ CREATE TABLE IF NOT EXISTS `view_donhang` (
 DROP TABLE IF EXISTS `view_baocaodoanhthutheongay`;
 
 DROP VIEW IF EXISTS `view_baocaodoanhthutheongay`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_baocaodoanhthutheongay`  AS  select cast(`v`.`ngaydh` as date) AS `ngay`,count(`v`.`sodh`) AS `sodon`,sum(`v`.`tongtien`) AS `tongtien` from `view_donhang` `v` where `v`.`trangthaidh` <> 3 group by cast(`v`.`ngaydh` as date) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_baocaodoanhthutheongay`  AS SELECT cast(`v`.`ngaydh` as date) AS `ngay`, count(`v`.`sodh`) AS `sodon`, sum(`v`.`tongtien`) AS `tongtien` FROM `view_donhang` AS `v` WHERE `v`.`trangthaidh` <> 3 GROUP BY cast(`v`.`ngaydh` as date) ;
 
 -- --------------------------------------------------------
 
@@ -436,7 +436,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `view_donhang`;
 
 DROP VIEW IF EXISTS `view_donhang`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_donhang`  AS  select `d`.`sodh` AS `sodh`,`d`.`makh` AS `makh`,`k`.`hotenkh` AS `hotenkh`,`k`.`email` AS `email`,`k`.`sdt` AS `sdt`,`k`.`diachigiaohang` AS `diachigiaohang`,`d`.`ngaydh` AS `ngaydh`,sum(`c`.`soluong` * `c`.`giatien` - `c`.`giamgia`) AS `tongtien`,`d`.`trangthaidh` AS `trangthaidh` from ((`dondathang` `d` join `chitietdh` `c` on(`c`.`sodh` = `d`.`sodh`)) join `khachhang` `k` on(`k`.`makh` = `d`.`makh`)) group by `d`.`sodh` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_donhang`  AS SELECT `d`.`sodh` AS `sodh`, `d`.`makh` AS `makh`, `k`.`hotenkh` AS `hotenkh`, `k`.`email` AS `email`, `k`.`sdt` AS `sdt`, `k`.`diachigiaohang` AS `diachigiaohang`, `d`.`ngaydh` AS `ngaydh`, sum(`c`.`soluong` * `c`.`giatien` - `c`.`giamgia`) AS `tongtien`, `d`.`trangthaidh` AS `trangthaidh` FROM ((`dondathang` `d` join `chitietdh` `c` on(`c`.`sodh` = `d`.`sodh`)) join `khachhang` `k` on(`k`.`makh` = `d`.`makh`)) GROUP BY `d`.`sodh` ;
 
 --
 -- Constraints for dumped tables

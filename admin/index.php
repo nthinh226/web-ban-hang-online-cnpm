@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
 
 					<ul class="nav pull-right">
 
-						<li><a href="http://localhost/shopping/">
+						<li><a href="http://localhost:9000/web-ban-hang-online-cnpm">
 								Trở về cửa hàng
 							</a></li>
 					</ul>

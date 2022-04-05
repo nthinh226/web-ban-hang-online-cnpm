@@ -7,12 +7,12 @@
 					<div class="row">
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">About Us</h3>
+								<h3 class="footer-title">Về chúng tôi</h3>
 								
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>address</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>9846372444</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>abc@gmail.com</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>Địa chỉ</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>038 4735 254</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>wscomputer@gmail.com</a></li>
 								</ul>
 							</div>
 						</div>
@@ -27,20 +27,19 @@
 							</ul>
 							<span class="copyright">
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+								<b class="copyright">Copyright &copy; 2022 by White-Shark Group </b> All rights reserved.
 							
 							</span>
 						</div>
 
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">Categories</h3>
+								<h3 class="footer-title">Danh mục</h3>
 								<ul class="footer-links">
-									<li><a href="#">Mobiles</a></li>
-									<li><a href="#">Men</a></li>
-									<li><a href="#">Women</a></li>
-									<li><a href="#">Kids</a></li>
-									<li><a href="#">Accessories</a></li>
+									<li><a href="#">CPU</a></li>
+									<li><a href="#">GPU</a></li>
+									<li><a href="#">Case</a></li>
+									<li><a href="#">Ram</a></li>
 								</ul>
 							</div>
 						</div>
